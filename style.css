@@ -1,0 +1,14 @@
+.heading{
+    border-style: solid;
+}
+.searching{
+    border-style:solid;
+    height: 100px;
+}
+.results{
+    border-style: solid;
+    height: 200px;
+}
+.ending{
+    background-color: grey;
+}

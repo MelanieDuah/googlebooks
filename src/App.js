@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './component/head';
+import SearchBox from './component/searchbox';
+import BookResults from './component/bookresults';
+import Footer from './component/footer';
+import BooksContext from './component/bookscontext';
+import Db from './component/db';
 
-function App() {
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BooksContext.Provider value={
+      {
+        newSearchResultsReceived: () => { },
+        db : Db.createDb('booksdb', 'books'),
+        bookDeleted: () =>{}
+      }}>
+      <div>
+        <Header />
+        <SearchBox />
+        <BookResults />
+        <Footer />
+      </div>
+    </BooksContext.Provider>
   );
 }
 
-export default App;
